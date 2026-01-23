@@ -90,3 +90,10 @@ x=========x]
 [2026-01-23 16:30:39,875:INFO:main:>>>>>> Prepare base model completed <<<<<< 
 
 x=========x]
+[2026-01-23 17:35:30,932:INFO:common:yaml file: config\config.yaml loaded successfully]
+[2026-01-23 17:35:31,006:INFO:common:yaml file: params.yaml loaded successfully]
+[2026-01-23 17:35:31,035:INFO:common:created directory at:artifacts]
+[2026-01-23 17:40:03,306:INFO:common:yaml file: config\config.yaml loaded successfully]
+[2026-01-23 17:40:03,326:INFO:common:yaml file: params.yaml loaded successfully]
+[2026-01-23 17:40:03,334:INFO:common:created directory at:artifacts]
+[2026-01-23 17:40:03,342:INFO:common:created directory at:artifacts\training]
