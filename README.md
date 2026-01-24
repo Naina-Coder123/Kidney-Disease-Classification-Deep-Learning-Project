@@ -64,3 +64,10 @@ export MLFLOW_TRACKING_PASSWORD=f82b8bd9b71164d260ef4671ad7ef51f8643fc79
 ```
 ### for terminal cmd
 D:\Anaconda\envs\kidney\python.exe main.py
+
+
+### DVC CMD
+
+1.dvc init
+2.dvc repro
+3.dvc dag
