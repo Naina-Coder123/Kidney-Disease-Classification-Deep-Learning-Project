@@ -16,6 +16,8 @@ class ClientApp:
         self.filename="inputImage.jpg"
         self.classifier=PredictionPipeline(self.filename)
         
+clApp=ClientApp()
+        
 @app.route("/",methods=['GET'])
 @cross_origin()
 def home():
@@ -39,7 +41,6 @@ def predictRoute():
 
 
 if __name__ == "__main__":
-    clApp=ClientApp()
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
 
