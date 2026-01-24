@@ -553,3 +553,104 @@ x=========x]
 [2026-01-24 13:42:37,882:INFO:stage04_model_evaluation_mlflow:>>>>>> Evaluation stage completed <<<<<< 
 
 x=========x]
+[2026-01-24 14:29:57,697:INFO:_internal:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8081]
+[2026-01-24 14:29:57,713:INFO:_internal:[33mPress CTRL+C to quit[0m]
+[2026-01-24 14:30:24,096:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:30:24] "GET / HTTP/1.1" 200 -]
+[2026-01-24 14:30:52,012:ERROR:app:Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+TypeError: cross_origin.<locals>.decorator() missing 1 required positional argument: 'f'
+[2026-01-24 14:30:52,393:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:30:52] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-24 14:32:34,069:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:32:34] "GET / HTTP/1.1" 200 -]
+[2026-01-24 14:33:12,024:INFO:_internal:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8081]
+[2026-01-24 14:33:12,024:INFO:_internal:[33mPress CTRL+C to quit[0m]
+[2026-01-24 14:33:19,136:ERROR:app:Exception on / [GET]]
+Traceback (most recent call last):
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\naina\Kidney-Disease-Classification-Deep-Learning-Project\app.py", line 22, in home
+    return render_template('index.html')
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\Anaconda\envs\kidney\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\Anaconda\envs\kidney\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "D:\Anaconda\envs\kidney\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\Anaconda\envs\kidney\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "D:\Anaconda\envs\kidney\lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "D:\Anaconda\envs\kidney\lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\naina\Kidney-Disease-Classification-Deep-Learning-Project\templates\index.html", line 138, in template
+    {% comment %} <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAlCAMAAABBJDpuAAAAVFBMVEX/fgD/iQA7NzIyMjMnNYInNYEnNYInNYEzMzInNYQnNYETJzsnNYIwN1wxMjNoTis4O1YrNm0xOF47PE9DP0dEQEVpTVkAJJ4nNYEOLJHJbiAzMzOmmmHRAAAAFnRSTlOh/vu+986oen9fP2UqEzQkFAIDAAEEILVBJQAAA3FJREFUWMPNmO2WoyAMQG0VBARtdVRs3/89NwkgaF1rd2aOm18tIrnkgwSz7n+R7LcV1ELkeS7E7VySRlyfQXJhTiO55c+liP4cEuH1X8E7gaV+S3Jv2zYZ/Vr+/Sdx2vP6doc/fSPcf/GOpLSFVXFUW8t+giRP47TOd60yk1hbxIhSP0ACKPWrvw7YBIT/lcQY84G3Wk17ugWQfg5UsQJpjflKSLQi7xTWyk0SXTJ4VnB5D1yccxmp4Z+mX5KGNS+SPXVNll0ulyxL0wYmloBB6zL/MpCoAgjAJiUM6w0SboMwPUdRogvNKcNM3smFdRvEcJJkKcflQa+X0pNIfBGW0zKqjyQtw4VLKQlI7ZLgdrRNSZDjMQx2GB4pCkxkCrfGWUTJ0Egan6muCHgJCUwtnCk0mrJ9Q8K5LUqtdSfynkAedhynaRqngVDaXLiJEAzkFkM71IuIlWRYtSQpbXSZDvQ7JPCei9brs+oaABkn74LRIkpFaVxGnzjvIxTYREOoEwn5r01JTDRTcO87Eu3zNUeTPKZpjrIRrNIDCjzALbPk7LJMIokOEQu2K7yKQAKvFDF9pVe0R+LGb7h1MMkw2ijjA/1zhSfSphvEAChXJEhAqwYStIJWXnTpvbdH4hTUwSQ2JRmQpILDLYbB7J41SYiLcNozu5Z3JMo7RxBJahI7WSRByCMkqJt9hySESbVJcvmARJGFExJmdBSl2oM2+T4JLWfgaGFptizlPUm1FydHSdyZ7UnS4ySph2kS0kJrkvr5NJg7dnrJnfxgxPozRPGtkyPNOxtaiDvbIAF9L+5B5zTI2BwlwXmM+U3zReav3o0F8oUEFFZ42McDZYomOUziFmezgWyo251Uc1nyKJol7URCEvIYUEbHYaEGQi9C9egwCdVfHwiaajfjKMUcHcRacCylhWJbJDfq47EEDhYqoIWjHnwDXZPpPiChPQelLU+Cbm4w50FmYgkvFwpiWwCC/Um/SLcNElOC9RVj6qWpCiEMvRUK4zLpdKmPw8rVldy/qxjn60wLrVLWJIPLiZJRr3fsvnOHPvare+lB93tb37T20D82jqOt+zNuXhuNvNhp7X+PpHb3rvV9R5xjE2SpyCN9ffQO+GtWIZr5Xnytz4gTMIRYfys47/uJEXny/aQ/95tSUwmU+uRvSp/IHzQqZYpYrQmxAAAAAElFTkSuQmCC" /> {% endcomment %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'comment'.
+[2026-01-24 14:33:19,284:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:33:19] "[35m[1mGET / HTTP/1.1[0m" 500 -]
+[2026-01-24 14:33:20,051:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:33:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -]
+[2026-01-24 14:36:49,374:INFO:_internal:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8081]
+[2026-01-24 14:36:49,377:INFO:_internal:[33mPress CTRL+C to quit[0m]
+[2026-01-24 14:37:03,989:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:37:03] "GET / HTTP/1.1" 200 -]
+[2026-01-24 14:40:25,025:INFO:main:>>>>>> stage Data Ingestion Stage started <<<<<<]
+[2026-01-24 14:40:25,033:INFO:common:yaml file: config\config.yaml loaded successfully]
+[2026-01-24 14:40:25,041:INFO:common:yaml file: params.yaml loaded successfully]
+[2026-01-24 14:40:25,043:INFO:common:created directory at:artifacts]
+[2026-01-24 14:40:25,044:INFO:common:created directory at:artifacts/data_ingestion]
+[2026-01-24 14:40:25,045:INFO:data_ingestion:Downloading data from https://drive.google.com/file/d/1mYoexgS0MqfkvGdqQ5DE2hpBQ4BLPsOx/view?usp=drive_link into file artifacts/data_ingestion/data.zip]
+[2026-01-24 14:41:04,086:INFO:_internal:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8081]
+[2026-01-24 14:41:04,086:INFO:_internal:[33mPress CTRL+C to quit[0m]
+[2026-01-24 14:41:11,990:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:41:11] "GET / HTTP/1.1" 200 -]
+[2026-01-24 14:41:21,398:ERROR:app:Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda\envs\kidney\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+TypeError: cross_origin.<locals>.decorator() missing 1 required positional argument: 'f'
+[2026-01-24 14:41:21,522:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:41:21] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-24 14:44:59,448:INFO:_internal:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8081]
+[2026-01-24 14:44:59,448:INFO:_internal:[33mPress CTRL+C to quit[0m]
+[2026-01-24 14:45:04,281:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:45:04] "GET / HTTP/1.1" 200 -]
+[2026-01-24 14:45:16,896:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:45:16] "POST /predict HTTP/1.1" 200 -]
+[2026-01-24 14:51:57,716:INFO:_internal:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8081]
+[2026-01-24 14:51:57,717:INFO:_internal:[33mPress CTRL+C to quit[0m]
+[2026-01-24 14:52:05,046:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:52:05] "GET / HTTP/1.1" 200 -]
+[2026-01-24 14:52:20,265:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:52:20] "POST /predict HTTP/1.1" 200 -]
+[2026-01-24 14:54:46,911:INFO:_internal:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8081]
+[2026-01-24 14:54:46,912:INFO:_internal:[33mPress CTRL+C to quit[0m]
+[2026-01-24 14:54:54,745:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:54:54] "GET / HTTP/1.1" 200 -]
+[2026-01-24 14:55:07,216:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:55:07] "POST /predict HTTP/1.1" 200 -]
+[2026-01-24 14:55:57,918:INFO:_internal:127.0.0.1 - - [24/Jan/2026 14:55:57] "POST /predict HTTP/1.1" 200 -]
