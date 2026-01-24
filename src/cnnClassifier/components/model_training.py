@@ -60,7 +60,8 @@ class Training:
         )
         
     @staticmethod
-    def save_model(path:Path,model:tf.keras.Model):
+    def save_model(path: Path, model: tf.keras.Model):
+        path.parent.mkdir(parents=True, exist_ok=True)  # CREATE DIRECTORY
         model.save(path)
         
     def train(self):

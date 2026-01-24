@@ -517,3 +517,39 @@ x=========x]
 [2026-01-24 12:30:10,460:INFO:main:>>>>>> Evaluation stage completed <<<<<< 
 
 x=========x]
+[2026-01-24 13:20:14,414:INFO:stage01_data_ingestion:>>>>>> stage Data Ingestion Stage started <<<<<<]
+[2026-01-24 13:20:14,418:INFO:common:yaml file: config\config.yaml loaded successfully]
+[2026-01-24 13:20:14,425:INFO:common:yaml file: params.yaml loaded successfully]
+[2026-01-24 13:20:14,427:INFO:common:created directory at:artifacts]
+[2026-01-24 13:20:14,427:INFO:common:created directory at:artifacts/data_ingestion]
+[2026-01-24 13:20:14,428:INFO:data_ingestion:Downloading data from https://drive.google.com/file/d/1mYoexgS0MqfkvGdqQ5DE2hpBQ4BLPsOx/view?usp=drive_link into file artifacts/data_ingestion/data.zip]
+[2026-01-24 13:21:15,351:INFO:data_ingestion:Download data from https://drive.google.com/file/d/1mYoexgS0MqfkvGdqQ5DE2hpBQ4BLPsOx/view?usp=drive_link into file artifacts/data_ingestion/data.zip]
+[2026-01-24 13:21:23,483:INFO:stage01_data_ingestion:>>>>>> Data Ingestion Stage completed <<<<<< 
+
+x=========x]
+[2026-01-24 13:22:44,345:INFO:stage02_prepare_base_model:>>>>>> stage Prepare base model started <<<<<<]
+[2026-01-24 13:22:44,367:INFO:common:yaml file: config\config.yaml loaded successfully]
+[2026-01-24 13:22:44,373:INFO:common:yaml file: params.yaml loaded successfully]
+[2026-01-24 13:22:44,377:INFO:common:created directory at:artifacts]
+[2026-01-24 13:22:44,377:INFO:common:created directory at:artifacts/prepare_base_model]
+[2026-01-24 13:22:46,791:WARNING:saving_utils:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-24 13:22:49,032:INFO:stage02_prepare_base_model:>>>>>> Prepare base model completed <<<<<< 
+
+x=========x]
+[2026-01-24 13:35:34,988:INFO:stage03_model_training:>>>>>> stage TRAINING started <<<<<<]
+[2026-01-24 13:35:34,994:INFO:common:yaml file: config\config.yaml loaded successfully]
+[2026-01-24 13:35:34,998:INFO:common:yaml file: params.yaml loaded successfully]
+[2026-01-24 13:35:34,999:INFO:common:created directory at:artifacts]
+[2026-01-24 13:35:35,000:INFO:common:created directory at:artifacts\training]
+[2026-01-24 13:41:28,874:INFO:stage03_model_training:>>>>>> TRAINING completed <<<<<< 
+
+x=========x]
+[2026-01-24 13:41:48,352:INFO:stage04_model_evaluation_mlflow:>>>>>> stage Evaluation stage started <<<<<<]
+[2026-01-24 13:41:48,360:INFO:common:yaml file: config\config.yaml loaded successfully]
+[2026-01-24 13:41:48,364:INFO:common:yaml file: params.yaml loaded successfully]
+[2026-01-24 13:41:48,365:INFO:common:created directory at:artifacts]
+[2026-01-24 13:42:37,875:INFO:common:json file saved at :scores.json]
+[2026-01-24 13:42:37,881:INFO:common:json file saved at :scores.json]
+[2026-01-24 13:42:37,882:INFO:stage04_model_evaluation_mlflow:>>>>>> Evaluation stage completed <<<<<< 
+
+x=========x]
