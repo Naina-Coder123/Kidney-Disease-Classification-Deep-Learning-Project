@@ -61,7 +61,7 @@ def save_json(path:Path,data:dict):
    
     """
     with open(path,"w") as f:
-        json.dummp(data,f,indent=4)
+        json.dump(data,f,indent=4)
     logger.info(f"json file saved at :{path}")
     
 @ensure_annotations
