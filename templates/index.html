@@ -4,227 +4,305 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>cnncls</title>
-
-   
+    <title>Detector</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<style>
-    body{
-        background: linear-gradient(135deg, #e8f5e9, #f1f8ff);
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
+    <style>
+        body{
+            background: linear-gradient(135deg, #e8f5e9, #f1f8ff);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    .iupload h3{
-        color:#0b3c5d;
-        font-size:32px;
-        font-weight:700;
-        letter-spacing:0.5px;
-    }
+        .app-header{
+            text-align:center;
+            padding:30px 20px 20px;
+        }
 
-    .img-part{
-        height:320px;
-        width:320px;
-        margin:0 auto;
-    }
+        .logo-wrap{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin-bottom:14px;
+        }
 
-    .image-part{
-        height:320px;
-        width:320px;
-        border:2px dashed #0b3c5d;
-        border-radius:10px;
-        background:#ffffff;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-    }
+        .logo-box{
+            width:92px;
+            height:92px;
+            background:#ffffff;
+            border-radius:20px;
+            box-shadow:0 8px 20px rgba(11,60,93,0.12);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border:1px solid #d9e6ee;
+        }
 
-    .image-part img{
-        height:100%;
-        width:100%;
-        object-fit:cover;
-        display:none;
-        padding:6px;
-        border-radius:10px;
-    }
+        .app-header h1{
+            color:#0b3c5d;
+            font-size:40px;
+            font-weight:800;
+            margin-bottom:8px;
+            letter-spacing:0.8px;
+        }
 
-    .image-part #video{
-        height:100%;
-        width:100%;
-        border-radius:10px;
-    }
+        .app-header p{
+            color:#4f6b7a;
+            font-size:16px;
+            margin:0;
+        }
 
-    .btn-part{
-        width:100%;
-        margin-top:15px;
-        text-align:center;
-    }
+        .iupload h3{
+            color:#0b3c5d;
+            font-size:32px;
+            font-weight:700;
+            letter-spacing:0.5px;
+        }
 
-    .btn-primary{
-        background-color:#0b3c5d;
-        border:none;
-    }
+        .main{
+            background:#ffffffcc;
+            border-radius:18px;
+            padding:25px;
+            box-shadow:0 8px 30px rgba(0,0,0,0.08);
+            margin-top:10px;
+            margin-bottom:30px;
+        }
 
-    .btn-primary:hover{
-        background-color:#145a86;
-    }
+        .img-part{
+            height:320px;
+            width:320px;
+            margin:0 auto;
+        }
 
-    .btn-success{
-        background-color:#2e7d32;
-        border:none;
-    }
+        .image-part{
+            height:320px;
+            width:320px;
+            border:2px dashed #0b3c5d;
+            border-radius:10px;
+            background:#ffffff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
 
-    .btn-success:hover{
-        background-color:#1b5e20;
-    }
+        .image-part img{
+            height:100%;
+            width:100%;
+            object-fit:cover;
+            display:none;
+            padding:6px;
+            border-radius:10px;
+        }
 
-    .right-part{
-        background:#ffffff;
-        border-radius:10px;
-        box-shadow:0 4px 15px rgba(0,0,0,0.1);
-        padding:15px;
-    }
+        .image-part #video{
+            height:100%;
+            width:100%;
+            border-radius:10px;
+        }
 
-    .res-part,
-    .res-part2{
-        border:1px solid #dcdcdc;
-        border-radius:8px;
-        height:300px;
-        padding:10px;
-        background:#fafafa;
-        overflow:auto;
-    }
+        .btn-part{
+            width:100%;
+            margin-top:15px;
+            text-align:center;
+        }
 
-    .res-part pre{
-        font-size:15px;
-        color:#263238;
-    }
+        .btn-primary{
+            background-color:#0b3c5d;
+            border:none;
+        }
 
-    .resp-img{
-        height:100%;
-        width:100%;
-        object-fit:contain;
-        border-radius:8px;
-    }
+        .btn-primary:hover{
+            background-color:#145a86;
+        }
 
-    #loading{
-        position:fixed;
-        left:0;
-        top:0;
-        width:100%;
-        height:100%;
-        z-index:9999;
-        background:rgba(255,255,255,0.8);
-        display:flex;
-        align-items:center;
-        justify-content:center;
-    }
+        .btn-success{
+            background-color:#2e7d32;
+            border:none;
+        }
 
-    .loader{
-        border:6px solid #e0e0e0;
-        border-top:6px solid #0b3c5d;
-        border-radius:50%;
-        width:55px;
-        height:55px;
-        animation:spin 1s linear infinite;
-    }
+        .btn-success:hover{
+            background-color:#1b5e20;
+        }
 
-    @keyframes spin{
-        0%{transform:rotate(0deg);}
-        100%{transform:rotate(360deg);}
-    }
-</style>
+        .right-part{
+            background:#ffffff;
+            border-radius:10px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
+            padding:15px;
+        }
 
+        .res-part,
+        .res-part2{
+            border:1px solid #dcdcdc;
+            border-radius:8px;
+            height:300px;
+            padding:10px;
+            background:#fafafa;
+            overflow:auto;
+        }
+
+        .res-part pre{
+            font-size:15px;
+            color:#263238;
+        }
+
+        .resp-img{
+            height:100%;
+            width:100%;
+            object-fit:contain;
+            border-radius:8px;
+        }
+
+        #loading{
+            position:fixed;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            z-index:9999;
+            background:rgba(255,255,255,0.8);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+
+        .loader{
+            border:6px solid #e0e0e0;
+            border-top:6px solid #0b3c5d;
+            border-radius:50%;
+            width:55px;
+            height:55px;
+            animation:spin 1s linear infinite;
+        }
+
+        @keyframes spin{
+            0%{transform:rotate(0deg);}
+            100%{transform:rotate(360deg);}
+        }
+    </style>
 </head>
 
 <body>
+
+    <div class="app-header">
+        <div class="logo-wrap">
+            <div class="logo-box">
+                <svg width="62" height="62" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Kidney Detector Logo">
+                    <defs>
+                        <linearGradient id="kidneyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2e7d32"/>
+                            <stop offset="100%" stop-color="#0b3c5d"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M23 12
+                             C14 12, 9 19, 9 28
+                             C9 38, 15 46, 24 49
+                             C28 50, 31 47, 31 42
+                             L31 24
+                             C31 17, 28 12, 23 12Z"
+                          fill="url(#kidneyGrad)"/>
+                    <path d="M41 12
+                             C50 12, 55 19, 55 28
+                             C55 38, 49 46, 40 49
+                             C36 50, 33 47, 33 42
+                             L33 24
+                             C33 17, 36 12, 41 12Z"
+                          fill="url(#kidneyGrad)"/>
+                    <circle cx="32" cy="32" r="7" fill="#ffffff"/>
+                    <path d="M32 27 L32 37" stroke="#0b3c5d" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M27 32 L37 32" stroke="#0b3c5d" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <h1>Kidney Detector</h1>
+        <p>Upload a kidney scan image and get prediction results instantly</p>
+    </div>
+
     <div class="main container">
-		<section class="iupload">
-			<h3 class="text-center py-4">Object Classification</h3>
-			<div class="row">
-				<div class="img-part col-md-6">
-					<div class="image-part">
-						<video autoplay id="video"></video>
-						<img src="" id="photo">
-						<canvas style="display:none;" id="canvas"></canvas>
-					</div>
-					<div class="btn-part">
-						<form id="upload-data pt-3">
-							<div class="input-group mt-3 row">
-								<button type="button" class="btn btn-primary col-md-5 ml-3 mr-4" id="uload">Upload</button>
-								<button id="send" type="button" class="btn btn-success col-md-5">Predict</button>
-							</div>
+        <section class="iupload">
+            <h3 class="text-center py-4">Kidney Disease Classification</h3>
+            <div class="row">
+                <div class="img-part col-md-6">
+                    <div class="image-part">
+                        <video autoplay id="video"></video>
+                        <img src="" id="photo">
+                        <canvas style="display:none;" id="canvas"></canvas>
+                    </div>
+                    <div class="btn-part">
+                        <form id="upload-data" class="pt-3">
+                            <div class="input-group mt-3 row">
+                                <button type="button" class="btn btn-primary col-md-5 ml-3 mr-4" id="uload">Upload</button>
+                                <button id="send" type="button" class="btn btn-success col-md-5">Predict</button>
+                            </div>
 
-							<input type="hidden" id="url" value="../predict"/>
-							<input name="upload" type="file" id="fileinput" style="position:absolute;top:-500px;"/>
-						</form>
-					</div>
-				</div>
+                            <input type="hidden" id="url" value="../predict"/>
+                            <input name="upload" type="file" id="fileinput" style="position:absolute;top:-500px;"/>
+                        </form>
+                    </div>
+                </div>
 
-				<div class="col-md-6 right-part">
-					<h5 class="mb-2"><center>Prediction Results</center></h5>
-					<div class="row">
-						<div class="res-part2 col-md-5"></div>
-						<div class="res-part col-md-5"><div class="jsonRes"></div></div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
+                <div class="col-md-6 right-part">
+                    <h5 class="mb-2"><center>Prediction Results</center></h5>
+                    <div class="row">
+                        <div class="res-part2 col-md-5"></div>
+                        <div class="res-part col-md-5"><div class="jsonRes"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-   
+    <div id="loading"><div class="loader"></div></div>
 
-<div id="loading"><div class="loader"></div></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    var base_data = "";
 
-<script>
-var base_data = "";
+    function sendRequest(base64Data){
+        var url = $("#url").val();
+        $("#loading").show();
+        $.ajax({
+            url : url,
+            type: "post",
+            headers: {'Content-Type': 'application/json'},
+            data:JSON.stringify({image:base64Data}),
+            success: function(res){
+                $(".res-part").html("<pre>" + JSON.stringify(res[0], undefined, 2) + "</pre>");
+                $(".res-part2").html("<img class='resp-img' src='" + $('#photo').attr('src') + "' />");
+                $("#loading").hide();
+            }
+        });
+    }
 
-function sendRequest(base64Data){
-	var url = $("#url").val();
-	$("#loading").show();
-	$.ajax({
-		url : url,
-		type: "post",
-		headers: {'Content-Type': 'application/json'},
-		data:JSON.stringify({image:base64Data}),
-		success: function(res){
-        $(".res-part").html("<pre>" + JSON.stringify(res[0], undefined, 2) + "</pre>");
-        $(".res-part2").html("<img class='resp-img' src='" + $('#photo').attr('src') + "' />");
+    $(document).ready(function(){
         $("#loading").hide();
-}
-	});
-}
 
-$(document).ready(function(){
-	$("#loading").hide();
+        $('#send').click(function(){ sendRequest(base_data); });
 
-	$('#send').click(function(){ sendRequest(base_data); });
+        $('#uload').click(function(){ $('#fileinput').click(); });
 
-	$('#uload').click(function(){ $('#fileinput').click(); });
-
-	$("#fileinput").change(function(){
-		var reader = new FileReader();
-		reader.onload = function (e){
-			var img = new Image();
-			img.onload = function(){
-				var canvas = document.createElement('CANVAS');
-				canvas.height = this.height;
-				canvas.width = this.width;
-				canvas.getContext('2d').drawImage(this, 0, 0);
-				base_data = canvas.toDataURL('image/jpeg', 1.0)
-					.replace(/^data:image.+;base64,/, '');
-			};
-			img.src = e.target.result;
-			$('#photo').attr('src', e.target.result).show();
-			$('#video').hide();
-		}
-		reader.readAsDataURL(this.files[0]);
-	});
-});
-</script>
+        $("#fileinput").change(function(){
+            var reader = new FileReader();
+            reader.onload = function (e){
+                var img = new Image();
+                img.onload = function(){
+                    var canvas = document.createElement('CANVAS');
+                    canvas.height = this.height;
+                    canvas.width = this.width;
+                    canvas.getContext('2d').drawImage(this, 0, 0);
+                    base_data = canvas.toDataURL('image/jpeg', 1.0)
+                        .replace(/^data:image.+;base64,/, '');
+                };
+                img.src = e.target.result;
+                $('#photo').attr('src', e.target.result).show();
+                $('#video').hide();
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+    });
+    </script>
 
 </body>
 </html>
